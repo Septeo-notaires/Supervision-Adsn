@@ -1,0 +1,27 @@
+.is-hidden {
+  display: none;
+}
+
+.subtitle-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.toggle-button span {
+  color: #3273dc;
+  font-size: 1.2em;
+}
+
+.icon-rotate {
+  display: inline-block;
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}

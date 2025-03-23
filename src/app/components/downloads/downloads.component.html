@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>📂 Fichiers à télécharger</h2>
+  <ul>
+    <li *ngFor="let file of files">
+      <span>{{ file.name }}</span>
+      <a [href]="file.url" download>📥 Télécharger</a>
+    </li>
+  </ul>
+</div>

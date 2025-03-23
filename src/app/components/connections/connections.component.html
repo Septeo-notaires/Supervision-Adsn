@@ -1,0 +1,75 @@
+<h2 class="title is-3">📡 Supervision Telnet</h2>
+
+<div class="columns">
+  <!-- Connexion 1 -->
+  <div class="column">
+    <div class="card">
+      <div class="card-content">
+        <h3 class="title is-4">Connexion 1</h3>
+        <p><strong>IP:</strong> {{ ip }}</p>
+        <p><strong>Port:</strong> {{ port }}</p>
+        <p><strong>Status:</strong>
+          <span [ngClass]="{'tag is-success': connectionStatus === '✅ Connexion réussie !', 'tag is-danger': connectionStatus !== '✅ Connexion réussie !'}">
+            {{ connectionStatus }}
+          </span>
+        </p>
+        <p><strong>Dernière vérification:</strong> {{ lastCheckTime }}</p>
+        <button class="button is-link is-light" (click)="checkTelnetConnection()">
+          🔄 Relancer
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connexion 2 -->
+  <div class="column">
+    <div class="card">
+      <div class="card-content">
+        <h3 class="title is-4">Connexion 2</h3>
+        <p><strong>IP:</strong> {{ ip2 }}</p>
+        <p><strong>Port:</strong> {{ port2 }}</p>
+        <p><strong>Status:</strong>
+          <span [ngClass]="{'tag is-success': connectionStatus2 === '✅ Connexion réussie !', 'tag is-danger': connectionStatus2 !== '✅ Connexion réussie !'}">
+            {{ connectionStatus2 }}
+          </span>
+        </p>
+        <p><strong>Dernière vérification:</strong> {{ lastCheckTime2 }}</p>
+        <button class="button is-link is-light" (click)="checkTelnetConnection2()">
+          🔄 Relancer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="title is-3">🔗 Vérification des URLs</h2>
+
+<div class="card">
+  <div class="card-content">
+    <table class="table is-striped is-fullwidth">
+      <thead>
+      <tr>
+        <th>Service</th>
+        <th>URL</th>
+        <th>Statut</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let url of urlsToCheck; let i = index">
+        <td>{{ services[i] }}</td>
+        <td>{{ url }}</td>
+        <td>
+          <span [ngClass]="{
+            'tag is-success': urlStatuses[url] === '200',
+            'tag is-danger': urlStatuses[url] === '❌ Erreur de connexion',
+            'tag is-info': urlStatuses[url] === 'Vérification en cours...'
+          }">
+            {{ urlStatuses[url] }}
+          </span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
