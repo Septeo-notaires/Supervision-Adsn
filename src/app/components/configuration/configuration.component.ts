@@ -51,7 +51,7 @@ export class ConfigurationComponent implements OnInit {
   }
 
   rightProxyConfiguration: string = 'http=127.0.0.1:64000';
-  rightProxyExceptions: string = '10.20.250.1,eval-ecv.real.notaires.fr,eva-casierjudiciaire-bo.real.notaires.fr,eva-casierjudiciaire.real.notaires.fr,micen.real.notaires.fr,client-ecaase.real.notaires.fr,micen-services.real.notaires.fr,micen-upload.real.notaires.fr,micen-portail.real.notaires.fr,eval-anf-stock.notaires.fr,micen-test.real.notaires.fr,client-ecaase-test.real.notaires.fr,rmn.real.notaires.fr,planete.notaires.fr,eva-planete.real.notaires.fr,eva-micen-portail.real.notaires.fr,eva-micen-services.real.notaires.fr,eva-micen-upload.real.notaires.fr,eva-cgu.real.notaires.fr,eva-wsrmniban.real.notaires.fr';
+  rightProxyExceptions: string = '10.20.250.1,eval-ecv.real.notaires.fr,eva-casierjudiciaire-bo.real.notaires.fr,eva-casierjudiciaire.real.notaires.fr,micen.real.notaires.fr,client-ecaase.real.notaires.fr,micen-services.real.notaires.fr,micen-upload.real.notaires.fr,micen-portail.real.notaires.fr,eval-anf-stock.notaires.fr,micen-test.real.notaires.fr,client-ecaase-test.real.notaires.fr,rmn.real.notaires.fr,planete.notaires.fr,eva-planete.real.notaires.fr,eva-micen-portail.real.notaires.fr,eva-micen-services.real.notaires.fr,eva-micen-upload.real.notaires.fr,eva-cgu.real.notaires.fr';
   rightAwrConfig: string = `<?xml version="1.0"?>
 <Configuration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Mode="INIT" ModeConf="FALSE">
   <Proxy>
@@ -59,7 +59,7 @@ export class ConfigurationComponent implements OnInit {
     <RelayProxy>
       <Host>proxy.notaires.fr</Host>
       <Port>8080</Port>
-      <Exceptions>eva-planete.real.notaires.fr;eva-micen-public.real.notaires.fr;eva-micen-portail.real.notaires.fr;eva-micen-services.real.notaires.fr;eva-micen-upload.real.notaires.fr;micen-upload.real.notaires.fr;micen-services.real.notaires.fr;micen-portail.real.notaires.fr;rmn.real.notaires.fr;eval-anf-services.notaires.fr;eva-planete.real.notaires.fr;eval-anf-stock.notaires.fr;eva-cgu.real.notaires.fr;ref-wsoid.production-real.fr;ref-sacre.production-real.fr</Exceptions>
+      <Exceptions>eva-planete.real.notaires.fr;eva-micen-public.real.notaires.fr;eva-micen-portail.real.notaires.fr;eva-micen-services.real.notaires.fr;eva-micen-upload.real.notaires.fr;micen-upload.real.notaires.fr;micen-services.real.notaires.fr;micen-portail.real.notaires.fr;rmn.real.notaires.fr;eval-anf-services.notaires.fr;eva-planete.real.notaires.fr;eval-anf-stock.notaires.fr;eva-cgu.real.notaires.fr;ref-wsoid.production-real.fr;ref-sacre.production-real.fr;eva-wsrmniban.real.notaires.fr</Exceptions>
       <Login>maj-genapi.CSN1</Login>
       <Password>yxfS=998</Password>
     </RelayProxy>
