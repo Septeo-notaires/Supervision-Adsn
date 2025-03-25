@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "electron:start": "ng build --base-href ./ && tsc -p tsconfig.electron.json && electron dist/electron/main.js",
-    "electron:build": "electron-builder"
+    "electron:build": "ng build --base-href ./ && tsc -p tsconfig.electron.json && electron-builder"
   },
   "private": true,
   "dependencies": {
