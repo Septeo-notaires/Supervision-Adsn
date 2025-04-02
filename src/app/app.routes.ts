@@ -5,7 +5,7 @@ import {DownloadsComponent} from './components/downloads/downloads.component';
 import {DocumentationsComponent} from './components/documentations/documentations.component';
 
 export const routes: Routes = [
-  { path: '', component: ConfigurationComponent },
+  { path: '', redirectTo: '/configuration', pathMatch: 'full' },
   { path: 'configuration', component: ConfigurationComponent },
   { path: 'connections', component: ConnectionsComponent },
   { path: 'downloads', component: DownloadsComponent },
