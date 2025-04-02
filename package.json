@@ -1,6 +1,6 @@
 {
   "name": "supervision-adsn",
-  "version": "0.1.1-alpha.1",
+  "version": "1.0.0",
   "main": "dist/electron/main.js",
   "scripts": {
     "ng": "ng",
