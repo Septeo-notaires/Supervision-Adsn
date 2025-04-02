@@ -29,4 +29,8 @@ export class OsService {
   async readSecuredUrls(): Promise<string> {
     return await window.electron.readSecuredUrls();
   }
+
+  async readHosts(): Promise<string> {
+    return await window.electron.readHosts();
+  }
 }

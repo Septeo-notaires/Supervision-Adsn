@@ -12,8 +12,6 @@ export class DocumentationsComponent {
   item2 = { visible: false };
   item3 = { visible: false };
   item4 = { visible: false };
-  item5 = { visible: false };
-  item6 = { visible: false };
 
   toggleContent(item: any) {
     item.visible = !item.visible;

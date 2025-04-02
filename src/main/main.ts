@@ -153,3 +153,13 @@ ipcMain.handle('read-secured-urls', async (_event) => {
     return null;
   }
 });
+
+ipcMain.handle('read-hosts', async (_event) => {
+  try {
+    const fullPath = path.resolve('C:\\Windows\\System32\\drivers\\etc\\hosts');
+    return await fs.readFile(fullPath, 'utf-8');
+  } catch (error) {
+    console.error('Erreur lors de la lecture du fichier:', error);
+    return null;
+  }
+});

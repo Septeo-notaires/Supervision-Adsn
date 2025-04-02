@@ -1,0 +1,42 @@
+<p class="has-text-weight-bold m-2">{{ title }} :</p>
+
+<div class="d-flex" style="display: flex; gap: 10px; align-items: stretch; flex-wrap: wrap; max-width: 100%;">
+
+  <article class="message"
+           [ngClass]="{'is-success': isSuccess, 'is-danger': !isSuccess}"
+           [ngStyle]="{
+             'flex': '1',
+             'min-width': '300px',
+             'max-width': isSuccess ? '100%' : '50%',
+             'display': 'flex',
+             'flex-direction': 'column',
+             'height': '100%'
+           }">
+    <div class="message-body" style="flex-grow: 1; display: flex; flex-direction: column;">
+      <p *ngIf="!isSuccess">
+        <i class="fa fa-times-circle"></i>
+        Cette configuration semble incorrecte
+      </p>
+      <pre style="flex-grow: 1;">{{ currentConfig }}</pre>
+    </div>
+  </article>
+
+  <div *ngIf="!isSuccess"
+       style="flex: 1; min-width: 300px; max-width: 50%; display: flex; flex-direction: column; height: 100%;">
+    <article class="message is-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+      <div class="message-body" style="flex-grow: 1; display: flex; flex-direction: column;">
+        <p>
+          <i class="fa fa-info-circle"></i>
+          {{ infoMessage }}
+        </p>
+        <pre style="flex-grow: 1;">{{ rightConfig }}</pre>
+        <div style="margin-top: auto;">
+          <button class="button is-info" title="Appliquer" (click)="applyConfiguration()">
+            <i class="fa fa-save"></i>
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+</div>
