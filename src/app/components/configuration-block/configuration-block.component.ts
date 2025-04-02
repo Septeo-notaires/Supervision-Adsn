@@ -21,6 +21,21 @@ export class ConfigurationBlockComponent {
 
   @Output() applyConfig = new EventEmitter<void>();
 
+  copied = false;
+
+  copyToClipboard() {
+    if (!this.rightConfig) return;
+
+    navigator.clipboard.writeText(this.rightConfig).then(() => {
+      this.copied = true;
+      setTimeout(() => {
+        this.copied = false;
+      }, 2000);
+    }).catch(err => {
+      console.error('Erreur lors de la copie :', err);
+    });
+  }
+
   applyConfiguration() {
     this.applyConfig.emit();
   }
