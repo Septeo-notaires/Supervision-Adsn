@@ -17,6 +17,7 @@ export class ConfigurationBlockComponent {
   @Input() rightConfig!: string;
   @Input() isSuccess!: boolean;
   @Input() infoMessage: string = "Vous devriez appliquer cette configuration.";
+  @Input() path!: string;
 
   @Output() applyConfig = new EventEmitter<void>();
 

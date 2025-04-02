@@ -15,6 +15,7 @@
         [rightConfig]="rightProxyConfiguration"
         [isSuccess]="isSuccess"
         [infoMessage]="'Vous devriez appliquez cette configuration dans les proxies internet explorer'"
+        [path]="''"
         (applyConfig)="onApplyConfig()">
       </app-configuration-block>
 
@@ -24,6 +25,7 @@
         [rightConfig]="rightProxyExceptions"
         [isSuccess]="isProxyExceptionsSuccess"
         [infoMessage]="'Vous devriez appliquez cette configuration dans les exceptions des proxies internet explorer'"
+        [path]="''"
         (applyConfig)="onApplyConfig()">
       </app-configuration-block>
 
@@ -33,6 +35,7 @@
         [rightConfig]="rightAwrConfig"
         [isSuccess]="isCustomConfigurationSuccess"
         [infoMessage]="'Vous devriez appliquez cette configuration dans la configuration AWR'"
+        [path]="'C:\\ProgramData\\AWR\\custom_conf\\custom_configuration.xml'"
         (applyConfig)="onApplyConfig()">
       </app-configuration-block>
 
@@ -42,15 +45,21 @@
         [rightConfig]="rightSecuredUrls"
         [isSuccess]="isSecuredUrlsSuccess"
         [infoMessage]="'Vous devriez appliquer cette configuration dans la configuration des URLs sécurisées AWR'"
+        [path]="'C:\\ProgramData\\AWR\\custom_conf\\custom_secured_urls.xml'"
         (applyConfig)="onApplyConfig()">
       </app-configuration-block>
 
-      <p class="has-text-weight-bold m-2">Configuration minimale dans le fichier hosts :</p>
+      <p class="has-text-weight-bold m-2 mt-6">Configuration minimale dans le fichier hosts :</p>
+      <article class="message">
+        <div class="message-body">
+          <p>Chemin du fichier de configuration : C:\Windows\System32\drivers\etc\hosts</p>
+        </div>
+      </article>
       <article class="message is-info">
         <div class="message-body" style="flex-grow: 1; display: flex; flex-direction: column;">
           <p>
             <i class="fa fa-info-circle"></i>
-            Votre fichier hosts doit inclure les lignes suivantes sur votre poste (C:\Windows\System32\drivers\etc\hosts)
+            Votre fichier hosts doit inclure les lignes suivantes sur votre poste
           </p>
           <pre style="flex-grow: 1;">{{ rightHostsConfig }}</pre>
         </div>
