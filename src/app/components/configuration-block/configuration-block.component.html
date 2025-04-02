@@ -34,11 +34,14 @@
           {{ infoMessage }}
         </p>
         <pre style="flex-grow: 1;">{{ rightConfig }}</pre>
-<!--        <div style="margin-top: auto;">-->
+            <div style="margin-top: auto; display: flex; justify-content: flex-end;">
+              <button class="button is-info" title="Copier" (click)="copyToClipboard()">
+                <i class="fas" [ngClass]="copied ? 'fa-check' : 'fa-copy'"></i>
+              </button>
 <!--          <button class="button is-info" title="Appliquer" (click)="applyConfiguration()">-->
 <!--            <i class="fa fa-save"></i>-->
 <!--          </button>-->
-<!--        </div>-->
+            </div>
       </div>
     </article>
   </div>
