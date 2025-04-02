@@ -7,6 +7,7 @@ declare global {
       getProxyExceptions: () => Promise<string[]>;
       readCustomConfiguration: () => Promise<string>;
       readSecuredUrls: () => Promise<string>;
+      readHosts: () => Promise<string>;
     };
   }
 }

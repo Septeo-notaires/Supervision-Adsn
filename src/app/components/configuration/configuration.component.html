@@ -9,92 +9,52 @@
         <span class="has-text-success" *ngIf="(proxyStatus$ | async)">Oui</span>
         <span class="has-text-danger" *ngIf="!(proxyStatus$ | async)">Non</span>
       </p>
+      <app-configuration-block
+        [title]="'Configuration proxy'"
+        [currentConfig]="addressProxyServer$ | async"
+        [rightConfig]="rightProxyConfiguration"
+        [isSuccess]="isSuccess"
+        [infoMessage]="'Vous devriez appliquez cette configuration dans les proxies internet explorer'"
+        (applyConfig)="onApplyConfig()">
+      </app-configuration-block>
 
-      <p class="has-text-weight-bold">Configuration proxy :</p>
-      <article class="message" [ngClass]="{'is-success': isSuccess, 'is-danger': !isSuccess}">
-        <div class="message-body">
-          <pre>{{ addressProxyServer$ | async }}</pre>
+      <app-configuration-block
+        [title]="'Vos exceptions proxy'"
+        [currentConfig]="proxyExceptions$ | async"
+        [rightConfig]="rightProxyExceptions"
+        [isSuccess]="isProxyExceptionsSuccess"
+        [infoMessage]="'Vous devriez appliquez cette configuration dans les exceptions des proxies internet explorer'"
+        (applyConfig)="onApplyConfig()">
+      </app-configuration-block>
+
+      <app-configuration-block
+        [title]="'Votre configuration AWR'"
+        [currentConfig]="customConfiguration$ | async"
+        [rightConfig]="rightAwrConfig"
+        [isSuccess]="isCustomConfigurationSuccess"
+        [infoMessage]="'Vous devriez appliquez cette configuration dans la configuration AWR'"
+        (applyConfig)="onApplyConfig()">
+      </app-configuration-block>
+
+      <app-configuration-block
+        [title]="'Votre configuration AWR des URLs sécurisées'"
+        [currentConfig]="securedUrls$ | async"
+        [rightConfig]="rightSecuredUrls"
+        [isSuccess]="isSecuredUrlsSuccess"
+        [infoMessage]="'Vous devriez appliquer cette configuration dans la configuration des URLs sécurisées AWR'"
+        (applyConfig)="onApplyConfig()">
+      </app-configuration-block>
+
+      <p class="has-text-weight-bold m-2">Configuration minimale dans le fichier hosts :</p>
+      <article class="message is-info">
+        <div class="message-body" style="flex-grow: 1; display: flex; flex-direction: column;">
+          <p>
+            <i class="fa fa-info-circle"></i>
+            Votre fichier hosts doit inclure les lignes suivantes sur votre poste (C:\Windows\System32\drivers\etc\hosts)
+          </p>
+          <pre style="flex-grow: 1;">{{ rightHostsConfig }}</pre>
         </div>
       </article>
-
-      <div *ngIf="!isSuccess">
-        <article class="message is-info">
-          <div class="message-body">
-            <p>
-              <i class="fa fa-info-circle"></i>
-              Vous devriez appliquez cette configuration dans les proxies internet explorer
-            </p>
-            <pre>{{ rightProxyConfiguration }}</pre>
-          </div>
-        </article>
-      </div>
-
-      <p class="has-text-weight-bold">Vos exceptions proxy :</p>
-      <article class="message" [ngClass]="{'is-success': isProxyExceptionsSuccess, 'is-danger': !isProxyExceptionsSuccess}">
-        <div class="message-body">
-          <pre>{{ proxyExceptions$ | async }}</pre>
-        </div>
-      </article>
-
-      <div *ngIf="!isProxyExceptionsSuccess">
-        <article class="message is-info">
-          <div class="message-body">
-            <p>
-              <i class="fa fa-info-circle"></i>
-              Vous devriez appliquez cette configuration dans les exceptions des proxies internet explorer
-            </p>
-            <pre>{{ rightProxyExceptions }}</pre>
-            <button class="button is-info" title="Appliquer">
-              <i class="fa fa-save"></i>
-            </button>
-          </div>
-        </article>
-      </div>
-
-      <p class="has-text-weight-bold">Votre configuration AWR :</p>
-      <article class="message" [ngClass]="{'is-success': isCustomConfigurationSuccess, 'is-danger': !isCustomConfigurationSuccess}">
-        <div class="message-body">
-          <pre>{{ customConfiguration$ | async }}</pre>
-        </div>
-      </article>
-
-      <div *ngIf="!isCustomConfigurationSuccess">
-        <article class="message is-info">
-          <div class="message-body">
-            <p>
-              <i class="fa fa-info-circle"></i>
-              Vous devriez appliquez cette configuration dans la configuration AWR
-            </p>
-            <pre>{{ rightAwrConfig }}</pre>
-            <button class="button is-info" title="Appliquer">
-              <i class="fa fa-save"></i>
-            </button>
-          </div>
-        </article>
-      </div>
-
-      <p class="has-text-weight-bold">Votre configuration AWR des URLs sécurisées :</p>
-      <article class="message" [ngClass]="{'is-success': isSecuredUrlsSuccess, 'is-danger': !isSecuredUrlsSuccess}">
-        <div class="message-body">
-          <pre>{{ securedUrls$ | async }}</pre>
-        </div>
-      </article>
-
-      <div *ngIf="!isSecuredUrlsSuccess">
-        <article class="message is-info">
-          <div class="message-body">
-            <p>
-              <i class="fa fa-info-circle"></i>
-              Vous devriez appliquez cette configuration dans la configuration des URLs sécurisées AWR
-            </p>
-            <pre>{{ rightSecuredUrls }}</pre>
-            <button class="button is-info" title="Appliquer">
-              <i class="fa fa-save"></i>
-            </button>
-          </div>
-        </article>
-      </div>
-
     </div>
   </div>
 </div>

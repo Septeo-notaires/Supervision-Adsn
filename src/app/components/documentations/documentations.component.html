@@ -4,68 +4,55 @@
 
     <div class="box">
       <div class="subtitle-container">
-        <h2 class="subtitle">Vérification que TLS est activé dans iNot Comptabilité</h2>
-        <button class="toggle-button" (click)="toggleContent(item2)">
-          <i class="fas" [ngClass]="{ 'fa-chevron-down': item2.visible, 'fa-chevron-right': !item2.visible }"></i>
-        </button>
-      </div>
-      <div [ngClass]="{ 'is-hidden': !item2.visible }">
-        <p>Vérifiez bien dans le logiciel iNot Comptabilité, dans les paramètres généraux, que TLS 1.2 est bien activé.</p>
-        <img src="assets/wiki/chapter-1/tls_enable.png">
-      </div>
-    </div>
-
-    <div class="box">
-      <div class="subtitle-container">
         <h2 class="subtitle">Vérification de TLS 1.2 dans Internet Explorer</h2>
-        <button class="toggle-button" (click)="toggleContent(item3)">
-          <i class="fas" [ngClass]="{ 'fa-chevron-down': item3.visible, 'fa-chevron-right': !item3.visible }"></i>
+        <button class="toggle-button" (click)="toggleContent(item1)">
+          <i class="fas" [ngClass]="{ 'fa-chevron-down': item1.visible, 'fa-chevron-right': !item1.visible }"></i>
         </button>
       </div>
-      <div [ngClass]="{ 'is-hidden': !item3.visible }">
+      <div [ngClass]="{ 'is-hidden': !item1.visible }">
         <p>- Utilisez le raccouris clavier <kbd class="kbd"><i class="fa-brands fa-windows"></i></kbd> + <kbd class="kbd">R</kbd>.</p>
         <p>- Entrez <strong>inetcpl.cpl</strong> dans la zone de texte en bas à gauche de votre écran.</p>
-        <img src="assets/wiki/chapter-2/tls_12_parameter.png">
+        <img src="assets/wiki/chapter-1/tls_12_parameter.png">
       </div>
     </div>
 
     <div class="box">
       <div class="subtitle-container">
         <h2 class="subtitle">Vérification de l'homologation dans iNot Comptabilité</h2>
-        <button class="toggle-button" (click)="toggleContent(item4)">
-          <i class="fas" [ngClass]="{ 'fa-chevron-down': item4.visible, 'fa-chevron-right': !item4.visible }"></i>
+        <button class="toggle-button" (click)="toggleContent(item2)">
+          <i class="fas" [ngClass]="{ 'fa-chevron-down': item2.visible, 'fa-chevron-right': !item2.visible }"></i>
         </button>
       </div>
-      <div [ngClass]="{ 'is-hidden': !item4.visible }">
+      <div [ngClass]="{ 'is-hidden': !item2.visible }">
         <p>Vérifiez bien que vous êtes en homologation dans les paramètres WebServices du logiciel iNot Comptabilité.</p>
-        <img src="assets/wiki/chapter-3/homologation_enable.png">
+        <img src="assets/wiki/chapter-2/homologation_enable.png">
       </div>
     </div>
 
     <div class="box">
       <div class="subtitle-container">
         <h2 class="subtitle">Vérification des URLs dans iNot Comptabilité</h2>
-        <button class="toggle-button" (click)="toggleContent(item5)">
-          <i class="fas" [ngClass]="{ 'fa-chevron-down': item5.visible, 'fa-chevron-right': !item5.visible }"></i>
+        <button class="toggle-button" (click)="toggleContent(item3)">
+          <i class="fas" [ngClass]="{ 'fa-chevron-down': item3.visible, 'fa-chevron-right': !item3.visible }"></i>
         </button>
       </div>
-      <div [ngClass]="{ 'is-hidden': !item5.visible }">
+      <div [ngClass]="{ 'is-hidden': !item3.visible }">
         <p>Vérifiez bien les URLs dans les configurations WebServices du logiciel iNot Comptabilité.</p>
         <p>Une URL valide doit ressembler à ce modèle : <strong>http://recproj-awr-edi.cdc-net.com/services/&lt;NomDuService&gt;</strong></p>
-        <img src="assets/wiki/chapter-4/recproj_urls.png">
+        <img src="assets/wiki/chapter-3/recproj_urls.png">
       </div>
     </div>
 
     <div class="box">
       <div class="subtitle-container">
         <h2 class="subtitle">Vérification du CRPCEN dans iNot Comptabilité</h2>
-        <button class="toggle-button" (click)="toggleContent(item6)">
-          <i class="fas" [ngClass]="{ 'fa-chevron-down': item6.visible, 'fa-chevron-right': !item6.visible }"></i>
+        <button class="toggle-button" (click)="toggleContent(item4)">
+          <i class="fas" [ngClass]="{ 'fa-chevron-down': item4.visible, 'fa-chevron-right': !item4.visible }"></i>
         </button>
       </div>
-      <div [ngClass]="{ 'is-hidden': !item6.visible }">
+      <div [ngClass]="{ 'is-hidden': !item4.visible }">
         <p>Vérifiez bien le CRPCEN dans les configurations du logiciel iNot Comptabilité <kbd class="kbd">ctrl</kbd>+<kbd class="kbd">shift</kbd>+<kbd class="kbd">D</kbd>, il doit être du même numéro que la carte.</p>
-        <img src="assets/wiki/chapter-5/crpcen_config.png">
+        <img src="assets/wiki/chapter-4/crpcen_config.png">
       </div>
     </div>
   </div>

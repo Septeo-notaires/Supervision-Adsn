@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { OsService } from '../../services/os.service';
+import {ConfigurationBlockComponent} from '../configuration-block/configuration-block.component';
 
 @Component({
   selector: 'app-configuration',
   templateUrl: './configuration.component.html',
-  imports: [AsyncPipe, NgIf, NgClass],
+  imports: [AsyncPipe, NgIf, NgClass, ConfigurationBlockComponent],
   styleUrls: ['./configuration.component.css']
 })
 export class ConfigurationComponent implements OnInit {
@@ -14,11 +15,12 @@ export class ConfigurationComponent implements OnInit {
   proxyExceptions$: Promise<string[]>;
   customConfiguration$: Promise<string>;
   securedUrls$: Promise<string>;
+  hostsConfig$: Promise<string>;
 
-  isSuccess = true;
-  isProxyExceptionsSuccess = true;
-  isCustomConfigurationSuccess = true;
-  isSecuredUrlsSuccess = true;
+  isSuccess = false;
+  isProxyExceptionsSuccess = false;
+  isCustomConfigurationSuccess = false;
+  isSecuredUrlsSuccess = false;
 
   constructor(private osService: OsService) {
     this.proxyStatus$ = this.osService.isProxiesEnabled();
@@ -26,9 +28,11 @@ export class ConfigurationComponent implements OnInit {
     this.proxyExceptions$ = this.osService.getProxyExceptions();
     this.customConfiguration$ = this.osService.readCustomConfiguration();
     this.securedUrls$ = this.osService.readSecuredUrls();
+    this.hostsConfig$ = this.osService.readHosts();
   }
 
   async ngOnInit() {
+
     try {
       const addressProxyServerValue = await this.addressProxyServer$;
       this.isSuccess = await this.compare(this.rightProxyConfiguration, addressProxyServerValue);
@@ -47,7 +51,11 @@ export class ConfigurationComponent implements OnInit {
   }
 
   async compare(value: string, valuee: string): Promise<boolean> {
-    return value.replace(/\r\n/g, '\n') === valuee.replace(/\r\n/g, '\n');
+    return value.replace(/\r\n|\r/g, '\n').trim() === valuee.replace(/\r\n|\r/g, '\n').trim();
+  }
+
+  onApplyConfig() {
+    console.log("L'événement 'applyConfig' a été déclenché !");
   }
 
   rightProxyConfiguration: string = 'http=127.0.0.1:64000';
@@ -95,4 +103,14 @@ export class ConfigurationComponent implements OnInit {
   <SECURED_URL SOURCE_URL="ref-sacrecms.awr.production-real.fr" SOURCE_PORT="80" DESTINATION_URL="ref-sacre.production-real.fr" DESTINATION_PORT="5052" SECURE_MODE="Tls12" />
   <SECURED_URL SOURCE_URL="recproj-awr-edi.cdc-net.com" SOURCE_PORT="80" DESTINATION_URL="recproj-awr-edi.cdc-net.com" DESTINATION_PORT="443" SECURE_MODE="Tls12" />
 </SECURED_URLS>`
+  rightHostsConfig: string = `10.20.250.62 ref-sacre.production-real.fr
+10.20.250.71 ref-annuaire.production-real.fr
+10.20.250.71 ref-annuaire.real.notaires.fr
+10.20.250.72 ref-crldp.production-real.fr
+10.20.250.73 ref-ocsp.production-real.fr
+10.20.250.74 ref-tst.production-real.fr
+10.20.250.75 ref-wsoid.production-real.fr
+10.20.250.76 ref-dxs.production-real.fr
+10.20.250.49 eva-wsrmniban.real.notaires.fr
+172.30.100.100 proxy.notaires.fr`;
 }

@@ -7,4 +7,5 @@ contextBridge.exposeInMainWorld('electron', {
   getProxyExceptions: ():Promise<string[]> => ipcRenderer.invoke('get-proxy-exceptions'),
   readCustomConfiguration: ():Promise<string> => ipcRenderer.invoke('read-custom-configuration'),
   readSecuredUrls: ():Promise<string> => ipcRenderer.invoke('read-secured-urls'),
+  readHosts: ():Promise<string> => ipcRenderer.invoke('read-hosts'),
 });
